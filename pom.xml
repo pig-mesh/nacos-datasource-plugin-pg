@@ -28,6 +28,7 @@
         <spring.checkstyle.plugin>0.0.32</spring.checkstyle.plugin>
         <git.commit.plugin>2.2.5</git.commit.plugin>
         <commons-compress>1.21</commons-compress>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
     </properties>
 
     <developers>
@@ -86,6 +87,19 @@
                 <artifactId>spring-javaformat-maven-plugin</artifactId>
                 <version>${spring.checkstyle.plugin}</version>
             </plugin>
+            <!--代码编译指定版本插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <target>${maven.compiler.target}</target>
+                    <source>${maven.compiler.source}</source>
+                    <encoding>UTF-8</encoding>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
     <profiles>
