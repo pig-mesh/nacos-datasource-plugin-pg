@@ -1,0 +1,9 @@
+com.pig4cloud.plugin.impl.postgresql.ConfigInfoAggrMapperByPostgresql
+com.pig4cloud.plugin.impl.postgresql.ConfigInfoBetaMapperByPostgresql
+com.pig4cloud.plugin.impl.postgresql.ConfigInfoMapperByPostgresql
+com.pig4cloud.plugin.impl.postgresql.ConfigInfoTagMapperByPostgresql
+com.pig4cloud.plugin.impl.postgresql.ConfigTagsRelationMapperByPostgresql
+com.pig4cloud.plugin.impl.postgresql.HistoryConfigInfoMapperByPostgresql
+com.pig4cloud.plugin.impl.postgresql.TenantInfoMapperByPostgresql
+com.pig4cloud.plugin.impl.postgresql.TenantCapacityMapperByPostgresql
+com.pig4cloud.plugin.impl.postgresql.GroupCapacityMapperByPostgresql
