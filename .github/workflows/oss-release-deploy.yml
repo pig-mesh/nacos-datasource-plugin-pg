@@ -1,9 +1,8 @@
-name: publish maven package
+name: publish SNAPSHOT maven package
 on:
-  workflow_dispatch:
-  push:
-    tags:
-      - '*'
+    workflow_dispatch:
+    push:
+        branches: [ release ]
 
 jobs:
   oss-release-deploy:

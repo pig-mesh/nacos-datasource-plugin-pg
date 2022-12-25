@@ -1,4 +1,4 @@
-name: publish maven package
+name: publish SNAPSHOT maven package
 on:
   workflow_dispatch:
   push:
@@ -29,7 +29,6 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
       - name: Publish to Maven Central
-        if: contains('$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)', 'SNAPSHOT')
         run: mvn clean deploy -P snapshot -Dmaven.test.skip=true
         env:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
