@@ -28,7 +28,7 @@ Nacos 从 2.2.0 版本开始,可通过 SPI 机制注入多数据源实现插件,
 
 ### 2. 导入 nacos postgresql 数据库脚本
 
-[点击下载 nacos postgresql 数据库脚本](https://minio.pigx.vip/oss/202212/1671184224.sql "点击下载 nacos postgresql")
+./sql/nacos-pg.sql
 
 ### 3. 配置 nacos 数据源链接信息
 
