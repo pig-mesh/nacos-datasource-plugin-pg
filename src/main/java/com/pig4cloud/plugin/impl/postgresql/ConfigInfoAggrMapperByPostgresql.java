@@ -14,7 +14,6 @@ public class ConfigInfoAggrMapperByPostgresql extends AbstractMapper implements 
 	 * @param datumList
 	 * @return
 	 */
-	@Override
 	public String batchRemoveAggr(List<String> datumList) {
 		final StringBuilder datumString = new StringBuilder();
 		for (String datum : datumList) {
