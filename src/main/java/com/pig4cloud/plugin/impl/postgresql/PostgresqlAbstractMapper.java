@@ -152,4 +152,14 @@ public abstract class PostgresqlAbstractMapper extends AbstractMapper {
 		return sql.toString();
 	}
 
+	/**
+	 * Get function by functionName.
+	 * @param functionName functionName
+	 * @return function
+	 */
+	@Override
+	public String getFunction(String functionName) {
+		return TrustedPgFunctionEnum.getFunctionByName(functionName);
+	}
+
 }
