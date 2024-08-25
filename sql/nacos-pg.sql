@@ -1,4 +1,4 @@
-CREATE SEQUENCE "config_info_aggr_id_seq" 
+CREATE SEQUENCE "config_info_aggr_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -8,7 +8,7 @@ CACHE 1;
 -- ----------------------------
 -- Sequence structure for config_info_beta_id_seq
 -- ----------------------------
-CREATE SEQUENCE "config_info_beta_id_seq" 
+CREATE SEQUENCE "config_info_beta_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -18,7 +18,7 @@ CACHE 1;
 -- ----------------------------
 -- Sequence structure for config_info_id_seq
 -- ----------------------------
-CREATE SEQUENCE "config_info_id_seq" 
+CREATE SEQUENCE "config_info_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -28,7 +28,7 @@ CACHE 1;
 -- ----------------------------
 -- Sequence structure for config_info_tag_id_seq
 -- ----------------------------
-CREATE SEQUENCE "config_info_tag_id_seq" 
+CREATE SEQUENCE "config_info_tag_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -38,7 +38,7 @@ CACHE 1;
 -- ----------------------------
 -- Sequence structure for config_tags_relation_id_seq
 -- ----------------------------
-CREATE SEQUENCE "config_tags_relation_id_seq" 
+CREATE SEQUENCE "config_tags_relation_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -48,7 +48,7 @@ CACHE 1;
 -- ----------------------------
 -- Sequence structure for group_capacity_id_seq
 -- ----------------------------
-CREATE SEQUENCE "group_capacity_id_seq" 
+CREATE SEQUENCE "group_capacity_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -58,7 +58,7 @@ CACHE 1;
 -- ----------------------------
 -- Sequence structure for his_config_info_nid_seq
 -- ----------------------------
-CREATE SEQUENCE "his_config_info_nid_seq" 
+CREATE SEQUENCE "his_config_info_nid_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -68,7 +68,7 @@ CACHE 1;
 -- ----------------------------
 -- Sequence structure for tenant_capacity_id_seq
 -- ----------------------------
-CREATE SEQUENCE "tenant_capacity_id_seq" 
+CREATE SEQUENCE "tenant_capacity_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -78,7 +78,7 @@ CACHE 1;
 -- ----------------------------
 -- Sequence structure for tenant_info_id_seq
 -- ----------------------------
-CREATE SEQUENCE "tenant_info_id_seq" 
+CREATE SEQUENCE "tenant_info_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -548,3 +548,12 @@ CREATE INDEX "uk_tenant_info_kptenantid" ON "tenant_info" USING btree (
 -- Primary Key structure for table tenant_info
 -- ----------------------------
 ALTER TABLE "tenant_info" ADD CONSTRAINT "tenant_info_pkey" PRIMARY KEY ("id");
+
+-- 新版这个字段是boolean类型，旧版是int类型，需要转换
+ALTER TABLE "users"
+  ALTER COLUMN "enabled" TYPE boolean
+  USING CASE
+    WHEN "enabled" = 1 THEN true
+    WHEN "enabled" = 0 THEN false
+    ELSE NULL
+  END;

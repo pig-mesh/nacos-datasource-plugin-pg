@@ -13,11 +13,16 @@ Nacos 从 2.2.0 版本开始,可通过 SPI 机制注入多数据源实现插件,
 
 > 依赖已上传 maven 中央仓库，请勿使用阿里云代理
 
+| NACOS 版本      | 插件版本  |
+|---------------|-------|
+| 2.2.0 - 2.3.0 | 0.0.2 |
+| 2.3.1 - 2.3.2 | 0.0.3 |
+
 ```xml
 <dependency>
 	<groupId>com.pig4cloud.plugin</groupId>
 	<artifactId>nacos-datasource-plugin-pg</artifactId>
-	<version>0.0.2</version>
+	<version>${nacos.plugin.version}</version>
 </dependency>
 
 <dependency>
