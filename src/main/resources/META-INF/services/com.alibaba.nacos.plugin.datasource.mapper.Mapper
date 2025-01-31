@@ -1,4 +1,4 @@
-com.pig4cloud.plugin.impl.postgresql.ConfigInfoAggrMapperByPostgresql
+com.pig4cloud.plugin.impl.postgresql.ConfigInfoGrayMapperByPostgresql
 com.pig4cloud.plugin.impl.postgresql.ConfigInfoBetaMapperByPostgresql
 com.pig4cloud.plugin.impl.postgresql.ConfigInfoMapperByPostgresql
 com.pig4cloud.plugin.impl.postgresql.ConfigInfoTagMapperByPostgresql

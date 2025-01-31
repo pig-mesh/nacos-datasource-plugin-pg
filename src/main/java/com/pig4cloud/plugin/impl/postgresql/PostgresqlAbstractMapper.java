@@ -1,8 +1,10 @@
 package com.pig4cloud.plugin.impl.postgresql;
 
+import com.alibaba.nacos.common.utils.CollectionUtils;
 import com.alibaba.nacos.plugin.datasource.mapper.AbstractMapper;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Fxz
@@ -60,38 +62,31 @@ public abstract class PostgresqlAbstractMapper extends AbstractMapper {
 		StringBuilder sql = new StringBuilder();
 		String method = "UPDATE ";
 		sql.append(method);
-		sql.append(getTableName()).append(" ").append("SET ");
+		sql.append(this.getTableName()).append(" ").append("SET ");
 
-		for (int i = 0; i < columns.size(); i++) {
-			sql.append(columns.get(i)).append(" = ").append("?");
+		for (int i = 0; i < columns.size(); ++i) {
+			String[] parts = ((String) columns.get(i)).split("@");
+			String column = parts[0];
+			if (parts.length == 2) {
+				sql.append(column).append(" = ").append(this.getFunction(parts[1]));
+			}
+			else {
+				sql.append(column).append(" = ").append("?");
+			}
+
 			if (i != columns.size() - 1) {
 				sql.append(",");
 			}
 		}
 
-		if (where.size() == 0) {
+		if (CollectionUtils.isEmpty(where)) {
 			return sql.toString();
 		}
-
-		sql.append(" WHERE ");
-
-		for (int i = 0; i < where.size(); i++) {
-			String column = where.get(i);
-			if ("tenant_id".equalsIgnoreCase(column)) {
-				sql.append("(");
-				sql.append(column).append(" = ").append("?");
-				sql.append(" OR ");
-				sql.append(column).append(" IS NULL ");
-				sql.append(")");
-			}
-			else {
-				sql.append(column).append(" = ").append("?");
-			}
-			if (i != where.size() - 1) {
-				sql.append(" AND ");
-			}
+		else {
+			sql.append(" WHERE ");
+			sql.append(where.stream().map((str) -> str + " = ?").collect(Collectors.joining(" AND ")));
+			return sql.toString();
 		}
-		return sql.toString();
 	}
 
 	@Override
