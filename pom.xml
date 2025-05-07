@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version>
+        <version>3.4.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.pig4cloud.plugin</groupId>
     <artifactId>nacos-datasource-plugin-postgresql</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
     <name>nacos-datasource-plugin-pg</name>
     <description>nacos-datasource-plugin-pg</description>
     <url>https://pig4cloud.com</url>
@@ -23,7 +23,7 @@
     </licenses>
 
     <properties>
-        <nacos.version>2.5.0</nacos.version>
+        <nacos.version>3.0.0</nacos.version>
         <spring.checkstyle.plugin>0.0.32</spring.checkstyle.plugin>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <maven.compiler.source>1.8</maven.compiler.source>
