@@ -246,4 +246,5 @@ public class ConfigInfoMapperByPostgresql extends PostgresqlAbstractMapper imple
 	public String insert(List<String> columns) {
 		return super.insert(columns);
 	}
+
 }
