@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.5</version>
+        <version>3.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.pig4cloud.plugin</groupId>
@@ -23,7 +23,7 @@
     </licenses>
 
     <properties>
-        <nacos.version>3.0.1</nacos.version>
+        <nacos.version>3.0.2</nacos.version>
         <spring.checkstyle.plugin>0.0.32</spring.checkstyle.plugin>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <maven.compiler.source>1.8</maven.compiler.source>
