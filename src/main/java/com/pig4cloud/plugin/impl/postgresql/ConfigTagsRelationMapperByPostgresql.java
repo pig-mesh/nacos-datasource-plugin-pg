@@ -25,9 +25,8 @@ public class ConfigTagsRelationMapperByPostgresql extends PostgresqlAbstractMapp
 
 		List<Object> paramList = new ArrayList<>();
 		StringBuilder where = new StringBuilder(" WHERE ");
-		final String baseSql =
-				"SELECT a.id,a.data_id,a.group_id,a.tenant_id,a.app_name,a.content FROM config_info  a LEFT JOIN "
-						+ "config_tags_relation b ON a.id=b.id";
+		final String baseSql = "SELECT a.id,a.data_id,a.group_id,a.tenant_id,a.app_name,a.content FROM config_info  a LEFT JOIN "
+				+ "config_tags_relation b ON a.id=b.id";
 
 		where.append(" a.tenant_id=? ");
 		paramList.add(tenantId);
