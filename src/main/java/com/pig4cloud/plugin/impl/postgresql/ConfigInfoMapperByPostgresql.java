@@ -242,4 +242,8 @@ public class ConfigInfoMapperByPostgresql extends PostgresqlAbstractMapper imple
 		return DataSourceConstant.POSTGRESQL;
 	}
 
+	@Override
+	public String insert(List<String> columns) {
+		return super.insert(columns);
+	}
 }
